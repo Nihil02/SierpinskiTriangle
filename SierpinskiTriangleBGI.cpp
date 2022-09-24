@@ -7,7 +7,7 @@
 
 //Draws an inverted triangle
 void triangle(float x, float y, float h, int clr){
-    setcolor(clr%16+1);
+    setcolor(clr%15);
 	int tri[]={
 		x,				y+2*h/3,
 		x-h/sqrt(3),	y-h/3, 
@@ -15,7 +15,8 @@ void triangle(float x, float y, float h, int clr){
 		x,				y+2*h/3
 	};
 	
-    drawpoly(4, tri);
+	setfillstyle(11, clr); //Set the fill style to closely spaced dots
+    fillpoly(4, tri); //Draw a filled polygon
 }
 
 //Draws the frame triangle
@@ -49,7 +50,7 @@ int main(void){
 	initgraph(&gdriver, &gmode, "..\\BGI");
 	
 	frame();
-    draw(screenX/2, 2*screenY/3, screenY/2, 0);
+    draw(screenX/2, 2*screenY/3, screenY/2, 1);
 	
 	getch();
 	closegraph();
